@@ -1,0 +1,36 @@
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>Storage Actions</short-name>
+  
+  <tag>
+    <name>Delete</name>
+    <tag-class>com.dio.warehousespring.StorageActionDeleteTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>id</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>SaveStorage</name>
+    <tag-class>com.dio.warehousespring.StorageActionSaveTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>storageWebState</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>SetItem</name>
+    <tag-class>com.dio.warehousespring.StorageActionCollectItemTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>item</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+</taglib>
