@@ -26,7 +26,7 @@
       <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
       <jsp:setProperty name="item" property="description" value="${param['description']}"/>
     </jsp:useBean>
-    <sat:SetItem item="${item}" />
+    <sat:SetItem item="${item}" storageWebState="${storageWebState}" />
     <jsp:forward page="StorageAction.jsp"></jsp:forward>
   </c:when>
   <c:when test="${'Close' eq param['action']}">

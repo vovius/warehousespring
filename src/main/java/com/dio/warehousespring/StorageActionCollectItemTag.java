@@ -11,8 +11,9 @@ import com.dio.javamentoring.warehouse.TVStorage;
 
 public class StorageActionCollectItemTag extends SimpleTagSupport {
 	
-	TV item;
-
+	private TV item;
+	private StorageWebState storageWebState;
+	
 	public TV getItem() {
 		return item;
 	}
@@ -21,12 +22,17 @@ public class StorageActionCollectItemTag extends SimpleTagSupport {
 		this.item = item;
 	}
 
+	public StorageWebState getStorageWebState() {
+		return storageWebState;
+	}
+
+	public void setStorageWebState(StorageWebState storageWebState) {
+		this.storageWebState = storageWebState;
+	}
+	
 	@Override
 	public void doTag() throws JspException, IOException {
-		JspContext context = getJspContext();
-		StorageWebState storageWebState = (StorageWebState)context.getAttribute("storageWebState");		
-		TVStorage storage = storageWebState.getCurrentStorage();
-		
+		TVStorage storage = storageWebState.getCurrentStorage();		
 		storage.setItem(item);
 	}
 	
