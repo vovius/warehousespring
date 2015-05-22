@@ -28,16 +28,16 @@ public class StorageCommonFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		
-		StorageWebState storageWebState = (StorageWebState) context.getBean("state");
-		request.setAttribute("storageWebState", storageWebState);
+		/*StorageWebState storageWebState = (StorageWebState) context.getBean("state");
+		request.setAttribute("storageWebState", storageWebState);*/
 		
 		filterChain.doFilter(request, response);
 	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		context = new ClassPathXmlApplicationContext("application-context.xml");
+		/*context = new ClassPathXmlApplicationContext("application-context.xml");
 		StorageWebState storageWebState = (StorageWebState) context.getBean("state");
-		storageWebState.setStorageSelected(StorageType.TXT.name());
+		storageWebState.setStorageSelected(StorageType.TXT.name());*/
 	}
 
 }

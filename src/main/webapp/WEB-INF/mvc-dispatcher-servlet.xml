@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="state" class="com.dio.warehousespring.StorageWebState" />
+
+    <!-- 
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+      <props>
+         <prop key="/StorageSelect.jsp">storageSelectController</prop>
+       </props>
+       </property>
+    </bean>
+     -->
+   <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+      
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    
+    <bean class="com.dio.warehousespring.DefaultController" name="storageSelectController" />
+          
+</beans>
