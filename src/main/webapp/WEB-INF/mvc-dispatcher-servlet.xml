@@ -3,29 +3,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean name="state" class="com.dio.warehousespring.StorageWebState" />
-
-    <!-- 
-    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-      <property name="mappings">
-      <props>
-         <prop key="/StorageSelect.jsp">storageSelectController</prop>
-       </props>
-       </property>
-    </bean>
-     -->
-   <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-      
+ 
+    <bean class="com.dio.warehousespring.StorageCommonController" name="storageCommonController" />
+        
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+        <property name="exposeContextBeansAsAttributes" value="true"/>
     </bean>
     
-    <bean class="com.dio.warehousespring.DefaultController" name="storageSelectController" />
-          
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+        <props>
+           <prop key="/Storage*">storageCommonController</prop>
+         </props>
+      </property>
+    </bean>
+                 
 </beans>

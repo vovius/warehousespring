@@ -10,7 +10,9 @@
 
   <properties>
     <spring.version>4.1.6.RELEASE</spring.version>
+    <slf4jVersion>1.6.1</slf4jVersion>
   </properties>
+  
   
   <dependencies>
     <dependency>
@@ -69,6 +71,18 @@
         <artifactId>spring-webmvc</artifactId>
         <version>${spring.version}</version>
     </dependency>
+  
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-log4j12</artifactId>
+		  <version>${slf4jVersion}</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-api</artifactId>
+      <version>${slf4jVersion}</version>
+		</dependency>
               
   </dependencies>
 

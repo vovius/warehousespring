@@ -19,6 +19,11 @@ public class StorageWebState {
 		}
 	}
 	
+	public StorageWebState(StorageType storageType) {
+		this();
+		this.storageSelected = storageType;
+	}
+	
 	public String getStorageSelected() {
 		return storageSelected.name();
 	}

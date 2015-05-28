@@ -4,6 +4,7 @@
   <display-name>warehouse</display-name>
   <display-name>Archetype Created Web Application</display-name>
 
+<!-- 
   <filter>
   	<filter-name>CommonFilter</filter-name>
   	<filter-class>com.dio.warehousespring.StorageCommonFilter</filter-class>
@@ -43,7 +44,8 @@
     <filter-name>StorageItemMaintainFilter</filter-name>
     <url-pattern>/StorageItemMaintain.jsp</url-pattern>
   </filter-mapping>
-
+ -->
+ 
 	<context-param>
 	    <param-name>contextConfigLocation</param-name>
 	    <param-value>/WEB-INF/application-context.xml</param-value>
@@ -63,7 +65,7 @@
     
    <servlet-mapping>
        <servlet-name>mvc-dispatcher</servlet-name>
-       <url-pattern>/</url-pattern>
+       <url-pattern>/stor/*</url-pattern>
    </servlet-mapping> 
    
 </web-app>
