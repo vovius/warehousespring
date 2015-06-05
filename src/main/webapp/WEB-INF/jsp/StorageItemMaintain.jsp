@@ -1,3 +1,5 @@
+<%@page import="org.springframework.web.context.WebApplicationContext"%>
+<%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
 <%@page import="com.dio.warehousespring.*"%>
 <%@ page import="com.dio.javamentoring.warehouse.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -15,17 +17,19 @@
 </head>
 <body>
 
+<fmt:parseNumber var="editId" value="${param['editId']}" />
+<c:set var="currentStorage" value="${storageWebState.currentStorage}" />
+<c:set var="item" value="${currentStorage.getItemById(editId)}" />
+
 <c:choose>
   <c:when test="${'SaveNClose' eq param['action']}">
     <fmt:parseDate value="${param['dateMade']}" var="parsedDateMade" pattern="MM/dd/yyyy" /> 
-    <jsp:useBean id="item" class="com.dio.javamentoring.warehouse.TV">
-      <jsp:setProperty name="item" property="id" value="${param['id']}"/>
-      <jsp:setProperty name="item" property="brand" value="${param['brand']}"/>
-      <jsp:setProperty name="item" property="diagonal" value="${param['diagonal']}"/>
-      <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
-      <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
-      <jsp:setProperty name="item" property="description" value="${param['description']}"/>
-    </jsp:useBean>
+     <jsp:setProperty name="item" property="id" value="${param['id']}"/>
+     <jsp:setProperty name="item" property="brand" value="${param['brand']}"/>
+     <jsp:setProperty name="item" property="diagonal" value="${param['diagonal']}"/>
+     <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
+     <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
+     <jsp:setProperty name="item" property="description" value="${param['description']}"/>
     <sat:SetItem item="${item}" storageWebState="${storageWebState}" />
     <jsp:forward page="StorageAction.jsp"></jsp:forward>
   </c:when>

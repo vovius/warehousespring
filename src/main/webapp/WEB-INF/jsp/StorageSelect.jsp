@@ -10,10 +10,10 @@
 <title>Storage selection</title>
 </head>
 <body>
-<form action="StorageAction.jsp" method="post">
+<form action="StorageAction.html" method="post">
 	The following storage(s) are initialized:<br/>
 	<table>
-	  <c:forEach var="item" items="${storageWebState.warehouse.storages}" varStatus="status">
+	  <c:forEach var="item" items="${storageFactory.storages}" varStatus="status">
 	    <tr>
 	      <td><input type="radio" name="storages" id="${item.type}" value="${item.type}" ${item.type == storageWebState.storageSelected ? 'checked' :''} /><c:out value="${item.type}" /></td>
 	    </tr> 

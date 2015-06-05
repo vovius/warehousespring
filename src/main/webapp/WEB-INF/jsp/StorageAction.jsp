@@ -31,8 +31,8 @@ Content:<br/>
   <c:forEach var="item" items="${storageWebState.currentStorage.storageList}" varStatus="status">
     <tr>
       <td><c:out value="${item}" /></td>
-      <td><form action="StorageItemMaintain.jsp" method="get"><input type="submit" name="action" value="Edit" id="${item.id}" /><input type="hidden" value="${item.id}" name="editId" /></form></td>
-      <td><form action="StorageAction.jsp" method="get"><input type="submit" name="action" value="Delete" id="${item.id}"/><input type="hidden" value="${item.id}" name="deleteId" /></form></td>
+      <td><form action="StorageItemMaintain.html" method="get"><input type="submit" name="action" value="Edit" id="${item.id}" /><input type="hidden" value="${item.id}" name="editId" /></form></td>
+      <td><form action="StorageAction.html" method="get"><input type="submit" name="action" value="Delete" id="${item.id}"/><input type="hidden" value="${item.id}" name="deleteId" /></form></td>
       <td><c:out value="${fn:length(item.description)}" /></td>
       <td><c:if test="${item.description != null}"><c:out value="${fn:length(fn:split(item.description,' '))}" /></c:if></td>
       <td><c:if test="${item.description != null}"><c:out value="${sfn:isPalindrom(item.description)}" /></c:if></td>
@@ -40,16 +40,16 @@ Content:<br/>
    </c:forEach>
 </table>
 	
-<form action="StorageItemMaintain.jsp" method="get">
+<form action="StorageItemMaintain.html" method="get">
 	<input type="submit" value="Add new item ->" />
 </form>	
 
-<form action="StorageAction.jsp" method="post">
+<form action="StorageAction.html" method="post">
   <input type="submit" name="action" value="SaveStorage" />
 </form>
 
 
-<form action="StorageSelect.jsp" method="post">
+<form action="StorageSelect.html" method="post">
   <input type="submit" value="<- Back" />
 </form>
 

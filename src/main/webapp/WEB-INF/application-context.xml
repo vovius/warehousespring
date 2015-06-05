@@ -4,11 +4,52 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="/WEB-INF/application.properties"/>
+    </bean>
+
     <bean name="storageWebState" class="com.dio.warehousespring.StorageWebState">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">TXT</value>
+      </constructor-arg>
+      <property name="warehouseSpring" ref="storageFactory" />
+    </bean>
+
+    <bean id="storageFactory" class="com.dio.warehousespring.WarehouseSpring" factory-method="initStorageFactory">
+      <constructor-arg>
+        <value>${storageFolder}</value>
+      </constructor-arg>
+    </bean>
+    
+    <bean id="txtTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
       <constructor-arg>
         <value type="com.dio.javamentoring.warehouse.StorageType">TXT</value>
       </constructor-arg>
     </bean>
 
+    <bean id="csvTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">CSV</value>
+      </constructor-arg>
+    </bean>
+
+    <bean id="xlsTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">XLS</value>
+      </constructor-arg>
+    </bean>
+
+    <bean id="dbTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">DB</value>
+      </constructor-arg>
+    </bean>
+        
+    <bean id="dbPrepTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">DBPREP</value>
+      </constructor-arg>
+    </bean>
+        
 </beans>
 

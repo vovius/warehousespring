@@ -6,21 +6,13 @@ import com.dio.javamentoring.warehouse.Warehouse;
 
 public class StorageWebState {
 	
-	private Warehouse warehouse;
 	private StorageType storageSelected;
+	private Warehouse warehouse;
+	private WarehouseSpring warehouseSpring;
 
-	public StorageWebState() {
-		warehouse = new Warehouse();
-		try {
-			warehouse.initTVManageService("C:\\111\\");
-		} catch (Exception e) {
-			e.printStackTrace();
-			warehouse = null;
-		}
-	}
+	public StorageWebState() {}
 	
 	public StorageWebState(StorageType storageType) {
-		this();
 		this.storageSelected = storageType;
 	}
 	
@@ -32,27 +24,35 @@ public class StorageWebState {
 	public void setStorageSelected(String storageSelected) {
 		this.storageSelected = StorageType.valueOf(storageSelected);
 	}
+	
+	
 
 	public Warehouse getWarehouse() {
 		return warehouse;
 	}
-
 
 	public void setWarehouse(Warehouse warehouse) {
 		this.warehouse = warehouse;
 	}
 	
 	
+
+	public WarehouseSpring getWarehouseSpring() {
+		return warehouseSpring;
+	}
+
+	public void setWarehouseSpring(WarehouseSpring warehouseSpring) {
+		this.warehouseSpring = warehouseSpring;
+	}
+
 	public TVStorage getCurrentStorage() {
 		try {
-			return warehouse.getStorage(storageSelected);
+			return warehouseSpring.getManageService().getStorage(storageSelected);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	
 
 
 }
