@@ -31,14 +31,14 @@
      <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
      <jsp:setProperty name="item" property="description" value="${param['description']}"/>
     <sat:SetItem item="${item}" storageWebState="${storageWebState}" />
-    <jsp:forward page="StorageAction.jsp"></jsp:forward>
+    <jsp:forward page="StorageAction.html"></jsp:forward>
   </c:when>
   <c:when test="${'Close' eq param['action']}">
-    <jsp:forward page="StorageAction.jsp"></jsp:forward>
+    <jsp:forward page="StorageAction.html"></jsp:forward>
   </c:when>
 </c:choose>
 
-<form action="StorageItemMaintain.jsp">
+<form action="StorageItemMaintain.html">
 <table>
   <tr id="id">
     <td>id:</td><td>${param['editId']}<input type="hidden" name="id" value="${param['editId']}" /></td>
