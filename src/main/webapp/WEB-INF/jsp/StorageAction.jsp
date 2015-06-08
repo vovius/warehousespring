@@ -6,6 +6,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="sat" uri="/WEB-INF/storageactiontags.tld"%>
 <%@ taglib uri="http://www.vova.com/storagefunctions" prefix="sfn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<c:set var="authenticated" value="${false}"/>
+<sec:authorize ifAllGranted="${'ROLE_STORAGE_'.concat(param['storages'])}">
+    <c:set var="authenticated" value="${true}"/>
+</sec:authorize>
+
+<sec:authentication var="user" property="principal" />
+<c:if test="${authenticated == false}">
+  <jsp:forward page="error_no_access.html"></jsp:forward>
+</c:if>
+
+<sec:authorize access="hasRole('ROLE_USER') and ${authenticated}">
+${user}<br/>
+</sec:authorize>
 
 <c:if test="${param['storages'] != null}">
   <c:set target="${storageWebState}" property="storageSelected" value="${param['storages']}" />

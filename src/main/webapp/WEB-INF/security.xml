@@ -7,8 +7,8 @@
                  http://www.springframework.org/schema/security/spring-security-3.2.xsd"> 
 
   
-<http auto-config="true"> 
-   <intercept-url pattern="/Storage*" access="ROLE_USER"/> 
+<http use-expressions="true" auto-config="true"> 
+   <intercept-url pattern="/Storage*" access="hasRole('ROLE_USER') and isAuthenticated()"/> 
 </http>
 
 <global-method-security secured-annotations="enabled" />
@@ -17,7 +17,7 @@
    <authentication-provider> 
       <user-service> 
          <user name="admin" password="pass" authorities="ROLE_ADMIN"/> 
-         <user name="user1" password="1111" authorities="ROLE_USER"/> 
+         <user name="user1" password="1111" authorities="ROLE_USER,ROLE_STORAGE_TXT"/> 
          <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>    
       </user-service> 
    </authentication-provider> 

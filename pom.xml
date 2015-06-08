@@ -96,6 +96,13 @@
 	    <artifactId>spring-security-config</artifactId>
 	    <version>${spring-security.version}</version>
 	  </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
     
 		<dependency>
 		  <groupId>org.slf4j</groupId>
@@ -108,7 +115,6 @@
 		  <artifactId>slf4j-api</artifactId>
       <version>${slf4jVersion}</version>
 		</dependency>
-
 
 </dependencies>
               
