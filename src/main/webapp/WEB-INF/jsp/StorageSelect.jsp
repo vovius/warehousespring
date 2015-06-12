@@ -25,5 +25,10 @@
 </form>
 
 
+<h5>Period 1: ${lifeCounter1.lifePeriod}</h5>
+<h5>Period 2: ${lifeCounter2.lifePeriod}</h5>
+<h5>Period 3: ${lifeCounter3.lifePeriod}</h5>
+<h5>Period 4: ${lifeCounter4.lifePeriod}</h5>
+
 </body>
 </html>

@@ -53,6 +53,20 @@
         <value type="com.dio.javamentoring.warehouse.StorageType">DBPREP</value>
       </constructor-arg>
     </bean>
+
+    <bean id="HibernateTVStorage" factory-bean="storageFactory" factory-method="initStorageByType">
+      <constructor-arg>
+        <value type="com.dio.javamentoring.warehouse.StorageType">HIBERNATE</value>
+      </constructor-arg>
+    </bean>
+        
+    <bean id="lifeCounter1" class="com.dio.warehousespring.LifeCounter" scope="singleton" />
+
+    <bean id="lifeCounter2" class="com.dio.warehousespring.LifeCounter" scope="prototype" />    
+
+    <bean id="lifeCounter3" class="com.dio.warehousespring.LifeCounter" scope="session" />    
+
+    <bean id="lifeCounter4" class="com.dio.warehousespring.LifeCounter" scope="request" />    
         
 </beans>
 

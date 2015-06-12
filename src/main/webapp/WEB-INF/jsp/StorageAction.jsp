@@ -14,8 +14,9 @@
 </sec:authorize>
 
 <sec:authentication var="user" property="principal" />
-<c:if test="${authenticated == false}">
-  <jsp:forward page="error_no_access.html"></jsp:forward>
+<c:if test="${!authenticated}">
+  <jsp:forward page="error_no_access.jsp"><jsp:param value="${param['storages']}" name="storage"/></jsp:forward>
+  
 </c:if>
 
 <sec:authorize access="hasRole('ROLE_USER') and ${authenticated}">
