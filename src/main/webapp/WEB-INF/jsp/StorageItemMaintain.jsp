@@ -24,17 +24,19 @@
 <c:choose>
   <c:when test="${'SaveNClose' eq param['action']}">
     <fmt:parseDate value="${param['dateMade']}" var="parsedDateMade" pattern="MM/dd/yyyy" /> 
-     <jsp:setProperty name="item" property="id" value="${param['id']}"/>
-     <jsp:setProperty name="item" property="brand" value="${param['brand']}"/>
-     <jsp:setProperty name="item" property="diagonal" value="${param['diagonal']}"/>
-     <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
-     <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
-     <jsp:setProperty name="item" property="description" value="${param['description']}"/>
-    <sat:SetItem item="${item}" storageWebState="${storageWebState}" />
-    <jsp:forward page="StorageAction.html"></jsp:forward>
+    <jsp:useBean id="itemSave" class="com.dio.javamentoring.warehouse.TV">
+     <jsp:setProperty name="itemSave" property="id" value="${param['id']}"/>
+     <jsp:setProperty name="itemSave" property="brand" value="${param['brand']}"/>
+     <jsp:setProperty name="itemSave" property="diagonal" value="${param['diagonal']}"/>
+     <jsp:setProperty name="itemSave" property="matrixType" value="${param['matrixType']}"/>
+     <jsp:setProperty name="itemSave" property="dateMade" value="${parsedDateMade}"/>
+     <jsp:setProperty name="itemSave" property="description" value="${param['description']}"/>
+     <sat:SetItem item="${itemSave}" storageWebState="${storageWebState}" />
+    </jsp:useBean>
+    <jsp:forward page="/WEB-INF/jsp/StorageAction.jsp"></jsp:forward>
   </c:when>
   <c:when test="${'Close' eq param['action']}">
-    <jsp:forward page="StorageAction.html"></jsp:forward>
+    <jsp:forward page="/WEB-INF/jsp/StorageAction.jsp"></jsp:forward>
   </c:when>
 </c:choose>
 
