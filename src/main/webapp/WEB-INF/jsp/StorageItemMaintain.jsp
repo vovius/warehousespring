@@ -56,7 +56,7 @@
     <td>
 	    <select name="matrixType">
 		    <c:forEach var="matrixTypeItem" items="<%=MatrixType.values()%>">
-		      <option><c:out value="${matrixTypeItem.name()}"/></option>
+		      <option ${item.matrixType == matrixTypeItem.name() ? 'selected="selected"' : ''}"><c:out value="${matrixTypeItem.name()}"/></option>
 		    </c:forEach>
 	    </select>
     </td>

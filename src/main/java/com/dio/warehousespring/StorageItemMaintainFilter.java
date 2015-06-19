@@ -21,7 +21,6 @@ public class StorageItemMaintainFilter implements Filter {
 		int id = obj != null ? Integer.valueOf(obj).intValue() : 0;
 		StorageWebState storageWebState = (StorageWebState)request.getAttribute("storageWebState");
 		request.setAttribute("item", storageWebState.getCurrentStorage().getItemById(id));
-		com.dio.javamentoring.warehouse.TV
 		
 		filterChain.doFilter(request, response);
 	}

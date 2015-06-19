@@ -1,6 +1,8 @@
 package com.dio.warehousespring;
 
-public class LifeCounter {
+import java.io.Serializable;
+
+public class LifeCounter implements Serializable {
 	
 	private long timeCreated;
 
