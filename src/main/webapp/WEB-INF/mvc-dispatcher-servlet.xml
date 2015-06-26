@@ -7,8 +7,7 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
  
-    <bean class="com.dio.warehousespring.StorageCommonController" name="storageCommonController" />
-        
+    <!--     
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
@@ -18,10 +17,32 @@
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
       <property name="mappings">
         <props>
-           <prop key="/Storage*">storageCommonController</prop>
+           <prop key="/Storage*">storageCommonController</prop> 
+           <prop key="/warehouserest/*">warehouseRESTController</prop>
          </props>
       </property>
+    </bean>  -->
+    
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+      <property name="mediaTypes">
+          <map>
+              <entry key="xml" value="application/xml"/>
+              <entry key="html" value="text/html"/>
+          </map>
+      </property>
+      <property name="viewResolvers">
+          <list>
+              <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+              <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+                <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+                <property name="prefix" value="/WEB-INF/jsp/"/>
+                <property name="suffix" value=".jsp"/>
+                <property name="exposeContextBeansAsAttributes" value="true"/>
+              </bean>
+          </list>
+      </property>
     </bean>
+    
                  
     <bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
     

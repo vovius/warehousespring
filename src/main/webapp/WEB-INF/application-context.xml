@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -67,6 +68,38 @@
     <bean id="lifeCounter3" class="com.dio.warehousespring.LifeCounter" scope="session" />    
 
     <bean id="lifeCounter4" class="com.dio.warehousespring.LifeCounter" scope="request" />    
+
+
+
+
+    <!-- REST -->
+    <context:component-scan base-package="com.dio.warehousespring" />
+
+		<!--Чтобы разрешить обработку @RequestMapping на уровне типа и на уровне метода-->
+		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+		<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+		<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		  <property name="classesToBeBound">
+		    <list>
+		        <value>com.dio.warehousespring.WarehouseREST</value>
+		        <value>com.dio.warehousespring.WarehouseRESTStorageList</value>
+		    </list>
+		  </property>
+		</bean>
         
+		<bean id="storages" class="org.springframework.web.servlet.view.xml.MarshallingView">
+		  <constructor-arg ref="jaxbMarshaller" />
+		</bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+
+    <bean class="com.dio.warehousespring.StorageCommonController" name="storageCommonController" />
+        
+    <bean id="warehouseRESTController" class="com.dio.warehousespring.WarehouseRESTController">
+      <property name="warehouseSpring" ref="storageFactory" />
+      <property name="jaxb2Mashaller" ref="jaxbMarshaller" />
+    </bean>
+
 </beans>
 

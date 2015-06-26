@@ -12,6 +12,8 @@
     <spring.version>4.1.6.RELEASE</spring.version>
     <spring-security.version>3.2.3.RELEASE</spring-security.version>
     <slf4jVersion>1.6.1</slf4jVersion>
+    <cxf.version>2.2.3</cxf.version>
+    <spring.ws.version>2.2.1.RELEASE</spring.ws.version>
   </properties>
   
   
@@ -103,7 +105,13 @@
       <version>${spring-security.version}</version>
     </dependency>
 
-    
+    <!-- REST -->
+		<dependency>
+		  <groupId>org.springframework.ws</groupId>
+		  <artifactId>spring-ws-core</artifactId>
+		  <version>${spring.ws.version}</version>
+		</dependency>		
+        
 		<dependency>
 		  <groupId>org.slf4j</groupId>
 		  <artifactId>slf4j-log4j12</artifactId>
@@ -121,10 +129,11 @@
 		  <artifactId>commons-logging</artifactId>
 		  <version>1.1.1</version>
 		</dependency>
-
+    
 </dependencies>
               
   <build>
     <finalName>warehousespring</finalName>
   </build>
+  
 </project>
