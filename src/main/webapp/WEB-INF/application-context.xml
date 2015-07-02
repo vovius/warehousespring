@@ -7,6 +7,9 @@
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.dio.warehousespring" />
         
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="/WEB-INF/application.properties"/>
@@ -73,9 +76,7 @@
 
 
     <!-- REST -->
-    <context:component-scan base-package="com.dio.warehousespring" />
 
-		<!--Чтобы разрешить обработку @RequestMapping на уровне типа и на уровне метода-->
 		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 		<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
@@ -84,6 +85,7 @@
 		    <list>
 		        <value>com.dio.warehousespring.WarehouseREST</value>
 		        <value>com.dio.warehousespring.WarehouseRESTStorageList</value>
+            <value>com.dio.javamentoring.warehouse.TV</value>
 		    </list>
 		  </property>
 		</bean>
@@ -100,6 +102,7 @@
       <property name="warehouseSpring" ref="storageFactory" />
       <property name="jaxb2Mashaller" ref="jaxbMarshaller" />
     </bean>
+
 
 </beans>
 
