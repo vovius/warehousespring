@@ -53,6 +53,7 @@ Content:<br/>
       <td><c:out value="${fn:length(item.description)}" /></td>
       <td><c:if test="${item.description != null}"><c:out value="${fn:length(fn:split(item.description,' '))}" /></c:if></td>
       <td><c:if test="${item.description != null}"><c:out value="${sfn:isPalindrom(item.description)}" /></c:if></td>
+      <c:if test="${'HIBERNATE'.equals(param['storages'])}"><td><form action="StorageShowBonuses.html" method="post"><input type="submit" name="bonuses" value="Bonuses..." id="${item.id}" /><input type="hidden" value="${item.id}" name="storageItemId" /></form></td></c:if>
     </tr> 
    </c:forEach>
 </table>

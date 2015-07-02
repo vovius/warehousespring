@@ -10,6 +10,7 @@
 <title>Storage selection</title>
 </head>
 <body>
+
 <form action="StorageAction.html" method="post">
 	The following storage(s) are initialized:<br/>
 	<table>
