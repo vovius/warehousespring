@@ -13,13 +13,14 @@
 <body>
 
 <fmt:parseNumber var="itemId" value="${param['storageItemId']}" />
-Bonuses for the item:&nbsp;<c:out value="${storageWebState.currentStorage.getItemById(itemId)}" />
+<c:set var="item" value="${storageWebState.currentStorage.getItemById(itemId)}"></c:set>
+Bonuses for the item:&nbsp;<c:out value="${item}" />
 
 
 <table>
 	<c:forEach items="${bonusList}" var="bonus">
 	  <tr>
-	  <td><input type="checkbox" name="bonuses" id="${bonus}" value="${bonus}"></td>
+	  <td><input type="checkbox" name="bonuses" id="${bonus}" value="${bonus}" ${item.bonusList.contains(bonus) ? 'checked' : ''} ></td>
 	  <td><c:out value="${bonus}"></c:out></td>
 	  </tr>
 	</c:forEach>
