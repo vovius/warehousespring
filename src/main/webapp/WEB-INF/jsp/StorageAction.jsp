@@ -64,6 +64,7 @@ Content:<br/>
 
 <form action="StorageAction.html" method="post">
   <input type="submit" name="action" value="SaveStorage" />
+  <input type="hidden" name="storages" value="${storageWebState.currentStorage.type}" />
 </form>
 
 

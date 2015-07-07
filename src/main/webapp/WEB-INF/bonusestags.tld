@@ -1,0 +1,24 @@
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>Storage Actions</short-name>
+  
+  <tag>
+    <name>UpdateBonuses</name>
+    <tag-class>com.dio.warehousespring.BonusesUpdateTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>tvItem</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>bonusName</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>action</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+</taglib>
